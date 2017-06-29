@@ -22,7 +22,7 @@
             android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:text="点击此处"/>
+            android:text="<<"/>
     </RelativeLayout>
 
     <ListView
