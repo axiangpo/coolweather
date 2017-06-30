@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +56,7 @@ public class ChooseAreaFragment extends Fragment {
     private City  selectedCity;
     private int  currentLevel;
 
-    @Nullable
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.choose_area,container,false);
@@ -64,13 +65,18 @@ public class ChooseAreaFragment extends Fragment {
         listView=(ListView)view.findViewById(R.id.list_view);
         adapter = new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1,dataList);
         listView.setAdapter(adapter);
+        Log.d("碎片","启动碎片onCreateView");
+        Toast.makeText(getContext(),"启动碎片onCreateView",Toast.LENGTH_SHORT).show();
 
         return view;
     }
 
-    public void onActicityCreated(Bundle savedInstanceState)
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
+        Log.d("碎片","启动碎片onActicityCreated");
+        Toast.makeText(getContext(),"启动碎片onActicityCreated",Toast.LENGTH_SHORT).show();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             public void onItemClick(AdapterView<?>parent,View view,int position,long id){
@@ -107,10 +113,14 @@ public class ChooseAreaFragment extends Fragment {
             }
         });
         queryProvinces();
+
     }
 
     private void queryProvinces()
     {
+        Log.d("碎片","启动碎片queryProvinces");
+        Toast.makeText(getContext(),"启动碎片queryProvinces",Toast.LENGTH_SHORT).show();
+
         titleText.setText("中国");
         backButton.setVisibility(View.GONE);
         provinceList = DataSupport.findAll(Province.class);
